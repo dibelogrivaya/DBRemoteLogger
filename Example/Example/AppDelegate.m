@@ -12,7 +12,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <CocoaLumberjack/DDLogMacros.h>
 
-#import "DBRemoteLogger.h"
+#import <DBRemoteLogger/DBRemoteLogger.h>
 
 @implementation AppDelegate
 

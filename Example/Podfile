@@ -6,8 +6,7 @@ platform :ios, '8.0'
 project 'Example'
 
 target 'Example' do
-  pod 'Antenna', '2.1'
-  pod 'CocoaLumberjack', '3.4.1'
+  pod 'DBRemoteLogger'
 end
 
 

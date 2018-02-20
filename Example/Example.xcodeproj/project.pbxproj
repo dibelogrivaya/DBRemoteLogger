@@ -13,7 +13,6 @@
 		022819E5203C689F009F4445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022819E4203C689F009F4445 /* Assets.xcassets */; };
 		022819E8203C689F009F4445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022819E6203C689F009F4445 /* LaunchScreen.storyboard */; };
 		022819EB203C689F009F4445 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 022819EA203C689F009F4445 /* main.m */; };
-		022819FB203CB49A009F4445 /* DBRemoteLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 022819FA203CB49A009F4445 /* DBRemoteLogger.m */; };
 		94565875F0637B6004E4F781 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8547C6B0A2BB9C1FFC5ACF3 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +27,6 @@
 		022819E7203C689F009F4445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		022819E9203C689F009F4445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		022819EA203C689F009F4445 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		022819F9203CB49A009F4445 /* DBRemoteLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBRemoteLogger.h; sourceTree = "<group>"; };
-		022819FA203CB49A009F4445 /* DBRemoteLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBRemoteLogger.m; sourceTree = "<group>"; };
 		8DFBDC3F6AFAF6F17A3752C5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CA5BC82BDB3F28C85678141F /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		E8547C6B0A2BB9C1FFC5ACF3 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,7 +65,6 @@
 		022819DA203C689E009F4445 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				022819F8203CB48C009F4445 /* DBRemoteLogger */,
 				022819DB203C689F009F4445 /* AppDelegate.h */,
 				022819DC203C689F009F4445 /* AppDelegate.m */,
 				022819DE203C689F009F4445 /* ViewController.h */,
@@ -80,16 +76,6 @@
 				022819EA203C689F009F4445 /* main.m */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		022819F8203CB48C009F4445 /* DBRemoteLogger */ = {
-			isa = PBXGroup;
-			children = (
-				022819F9203CB49A009F4445 /* DBRemoteLogger.h */,
-				022819FA203CB49A009F4445 /* DBRemoteLogger.m */,
-			);
-			name = DBRemoteLogger;
-			path = ../../DBRemoteLogger;
 			sourceTree = "<group>";
 		};
 		1D7F385AC48C50A08CF7A7BD /* Pods */ = {
@@ -235,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				022819E0203C689F009F4445 /* ViewController.m in Sources */,
-				022819FB203CB49A009F4445 /* DBRemoteLogger.m in Sources */,
 				022819EB203C689F009F4445 /* main.m in Sources */,
 				022819DD203C689F009F4445 /* AppDelegate.m in Sources */,
 			);
