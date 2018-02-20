@@ -10,8 +10,6 @@ pod "DBRemoteLogger"
 
 ## Usage
 
-* Import `DBRemoteLogger.h` in your view.
-
 ```objc
     [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://localhost:3000/logs"] method:@"POST"];
     [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
