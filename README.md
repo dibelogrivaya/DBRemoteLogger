@@ -11,13 +11,9 @@ pod "DBRemoteLogger"
 ## Usage
 
 ```objc
-    [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://localhost:3000/logs"] method:@"POST"];
-    [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
+    [DBRemoteLogger addLoggerWithChannelUrlPath:@"http://localhost:3000/logs" useLifecycleNotifications:YES];
     
-    DBRemoteLogger *logger = [[DBRemoteLogger alloc] initWithAntenna:[Antenna sharedLogger]];
-    [DDLog addLogger:logger];
-    
-    DDLogInfo(@"Test message");
+    DDLogInfo(@"Started using logging");
 ```
 
 ## Requirements
