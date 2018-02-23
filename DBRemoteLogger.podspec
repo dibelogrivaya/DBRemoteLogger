@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "DBRemoteLogger"
-  s.version      = "1.0"
+  s.version      = "1.1"
   s.summary      = "A custom CocoaLumberjack logger for remote logging through Antenna"
 
   s.description  = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.author             = { "Diana Belogrivaya" => "diana.belogrivaya@gmail.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "git@github.com:dibelogrivaya/DBRemoteLogger.git", :tag => s.version }
-  s.source_files  = "DBRemoteLogger"
+  s.source_files  = "DBRemoteLogger/*.h"
   s.requires_arc = true
   s.dependency "Antenna", '2.1'
   s.dependency "CocoaLumberjack", '3.4.1'

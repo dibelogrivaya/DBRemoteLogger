@@ -9,6 +9,8 @@
 #import "DBRemoteLogger.h"
 
 #import <Antenna/Antenna.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <CocoaLumberjack/DDLogMacros.h>
 
 #ifdef DEBUG
 DDLogLevel ddLogLevel = DDLogFlagVerbose | DDLogFlagDebug | DDLogFlagInfo | DDLogFlagWarning | DDLogFlagError;
@@ -16,25 +18,55 @@ DDLogLevel ddLogLevel = DDLogFlagVerbose | DDLogFlagDebug | DDLogFlagInfo | DDLo
 DDLogLevel ddLogLevel = DDLogFlagWarning | DDLogFlagError;
 #endif
 
-@interface DBRemoteLogger ()
-
-@property (nonatomic, strong) Antenna *antenna;
-
-@end
-
 @implementation DBRemoteLogger
 
-- (instancetype)initWithAntenna:(Antenna *)antenna {
-    self = [super init];
-    if (!self) { return nil; }
-    
-    self.antenna = antenna;
-    
++ (void)addLoggerWithChannelUrlPath:(NSString *)urlPath useLifecycleNotifications:(BOOL)loggingNotifications {
+    DBRemoteLogger *logger = [[[self class] alloc] initWithChannelUrlPath:urlPath
+                                                useLifecycleNotifications:loggingNotifications];
+    [DDLog addLogger:logger];
+}
+
++ (void)addASLLogger {
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+}
+
++ (void)addTTYLogger {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+}
+
+- (instancetype)initWithChannelUrlPath:(NSString *)urlPath
+             useLifecycleNotifications:(BOOL)loggingNotifications {
+    if (self = [super init]) {
+        [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:urlPath] method:@"POST"];
+        if (loggingNotifications) {
+            [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
+        }
+    }
     return self;
 }
 
-- (instancetype)init {
-    return [self initWithAntenna:[Antenna sharedLogger]];
++ (void)removeLoggerChannels {
+    DBRemoteLogger *remoteLogger = nil;
+    for (id<DDLogger> logger in [DDLog allLoggers]) {
+        if ([logger isKindOfClass:[self class]]) {
+            remoteLogger = logger;
+            break;
+        }
+    }
+    if (remoteLogger != nil) {
+        [DDLog removeLogger:remoteLogger];
+    }
+    
+    [[Antenna sharedLogger] removeAllChannels];
+    [[Antenna sharedLogger] stopLoggingAllNotifications];
+}
+
++ (void)removeASLLogger {
+    [DDLog removeLogger:[DDASLLogger sharedInstance]];
+}
+
++ (void)removeTTYLogger {
+    [DDLog removeLogger:[DDTTYLogger sharedInstance]];
 }
 
 #pragma mark - Log Payload
@@ -63,7 +95,7 @@ DDLogLevel ddLogLevel = DDLogFlagWarning | DDLogFlagError;
         NSMutableDictionary *logPayload = [NSMutableDictionary dictionaryWithDictionary:extraLogPayload];
         logPayload[@"message"] = logString;
         
-        [self.antenna log:logPayload];
+        [[Antenna sharedLogger] log:logPayload];
     }
 }
 

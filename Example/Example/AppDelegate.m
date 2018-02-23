@@ -18,16 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[Antenna sharedLogger] addChannelWithURL:[NSURL URLWithString:@"http://localhost:3000/logs"] method:@"POST"];
-    [[Antenna sharedLogger] startLoggingApplicationLifecycleNotifications];
-    
-//    [DDLog addLogger:[DDASLLogger sharedInstance]];
-//    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    
-    DBRemoteLogger *logger = [[DBRemoteLogger alloc] initWithAntenna:[Antenna sharedLogger]];
-    [DDLog addLogger:logger];
+    [DBRemoteLogger addLoggerWithChannelUrlPath:@"http://localhost:3000/logs" useLifecycleNotifications:YES];
     
     DDLogInfo(@"Test message");
+    
+    [DBRemoteLogger removeLoggerChannels];
     
     return YES;
 }

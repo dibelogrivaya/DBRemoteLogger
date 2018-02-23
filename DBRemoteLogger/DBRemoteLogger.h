@@ -8,13 +8,31 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-@class Antenna;
-
-extern DDLogLevel ddLogLevel;
+FOUNDATION_EXPORT DDLogLevel ddLogLevel;
 
 @interface DBRemoteLogger : DDAbstractLogger <DDLogger>
 
-- (instancetype)initWithAntenna:(Antenna *)antenna;
-- (NSDictionary *)logPayloadFromLogMessage:(DDLogMessage *)logMessage;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
+ * Antenna logger.
+ **/
++ (void)addLoggerWithChannelUrlPath:(NSString *)urlPath
+          useLifecycleNotifications:(BOOL)loggingNotifications;
++ (void)removeLoggerChannels;
+
+/**
+ * Logger for the Apple System Log facility.
+ **/
++ (void)addASLLogger;
++ (void)removeASLLogger;
+
+/**
+ * Logger for Terminal output or Xcode console output,
+ * depending on where you are running your code.
+ **/
++ (void)addTTYLogger;
++ (void)removeTTYLogger;
 
 @end
