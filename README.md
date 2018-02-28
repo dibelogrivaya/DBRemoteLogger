@@ -1,6 +1,9 @@
 # DBRemoteLogger
 A custom CocoaLumberjack logger for remote logging through Antenna
 
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/dibelogrivaya/DBRemoteLogger)
+[![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
+
 ## Installation
 
 ```objc
@@ -15,11 +18,6 @@ pod "DBRemoteLogger"
     
     DDLogInfo(@"Started using logging");
 ```
-
-## Requirements
-
-- iOS >= 8.0
-- ARC
 
 # License
 
