@@ -1,8 +1,9 @@
 # DBRemoteLogger
 A custom CocoaLumberjack logger for remote logging through Antenna
 
-[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/dibelogrivaya/DBRemoteLogger)
-[![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://github.com/dibelogrivaya/DBRemoteLogger)
+[![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg?style=flat)](https://developer.apple.com/xcode)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/dibelogrivaya/DBRemoteLogger)
 
 ## Installation
 
@@ -18,7 +19,3 @@ pod "DBRemoteLogger"
     
     DDLogInfo(@"Started using logging");
 ```
-
-## License
-
-DBRemoteLogger is available under the MIT license. See the LICENSE file for more info.
