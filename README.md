@@ -19,6 +19,6 @@ pod "DBRemoteLogger"
     DDLogInfo(@"Started using logging");
 ```
 
-# License
+## License
 
 DBRemoteLogger is available under the MIT license. See the LICENSE file for more info.
