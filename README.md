@@ -15,7 +15,6 @@ pod "DBRemoteLogger"
 ## Usage
 
 ```objc
-    [DBRemoteLogger addLoggerWithChannelUrlPath:@"http://localhost:3000/logs" useLifecycleNotifications:YES];
-    
-    DDLogInfo(@"Started using logging");
+[DBRemoteLogger addLoggerWithChannelUrlPath:@"http://localhost:3000/logs" useLifecycleNotifications:YES];
+DDLogInfo(@"Started using logging");
 ```
